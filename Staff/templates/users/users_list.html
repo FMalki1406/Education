@@ -1,0 +1,107 @@
+{% extends 'staff_base.html' %}
+
+{% load static %}
+
+
+
+{% block main %}
+
+
+<div class="row heading-bg">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+      <h5 class="txt-dark">المستخدمين</h5>
+    </div>
+    <!-- /Breadcrumb -->
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default card-view pa-0">
+            <div class="panel-wrapper collapse in">
+                <div class="panel-body pa-0">
+                    <div class="contact-list">
+                        <div class="row">
+                            <aside class="col-lg-2 col-md-4 pr-0">
+                                <div class="mt-20 mb-20 ml-15 mr-15">
+
+                                    <a href="{% url 'Staff:UserCreatePage' %}" class="btn btn-danger btn-block">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        إنشاء مستخدم جديد
+                                    </a>
+
+
+                                </div>
+                                <ul class="inbox-nav mb-30">
+                                    <li class="active">
+                                        <a href="#">Work <span class="label label-primary ml-10">12</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">design <span class="label label-danger ml-10">20</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">family <span class="label label-warning ml-10">2</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">friends<span class="label label-info ml-10">30</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">office <span class="label label-success ml-10">2</span></a>
+                                    </li>
+                                </ul>
+
+                                <a class="txt-success create-label  pa-15" href="javascript:void(0)" data-toggle="modal" data-target="#myModal_1">+ Create New Label</a>
+
+                            </aside>
+
+                            <aside class="col-lg-10 col-md-8 pl-0">
+                                <div class="panel pa-0">
+                                    <div class="panel-wrapper collapse in">
+                                        <div class="panel-body  pa-0">
+                                            <div class="table-responsive mb-30">
+                                                <table id="datable_1" class="table  display table-hover mb-30" data-page-size="10">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>اسم المستخدم</th>
+                                                            <th>نوع الحساب</th>
+                                                            <th>تاريخ الإنشاء</th>
+                                                            <th>الإجراء</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for users in users %}
+                                                    <tr>
+                                                            <td>{{ users.id }}</td>
+                                                            <td>{{ users.username }}</td>
+                                                            <td>{{ users.get_user_type_display }}</td>
+                                                            <td>{{ users.date_joined }}</td>
+                                                            <td>
+                                                                <a href="{% url 'Staff:UserDeletePage' users.id %}" class="btn btn-danger btn-rounded">
+                                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                                    حذف
+                                                                </a>
+                                                            </td>
+                                                            {% endfor %}
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-user">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+</div>
+{% endblock %}
