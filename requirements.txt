@@ -1,4 +1,4 @@
-Django==2.2.3
+Django==2.2.22
 django-jet==1.0.8
 django-smart-selects==1.5.4
 psycopg2==2.8.3
