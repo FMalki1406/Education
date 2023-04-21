@@ -3,5 +3,5 @@ django-jet==1.0.8
 django-smart-selects==1.5.4
 psycopg2==2.8.3
 pytz==2019.1
-sqlparse==0.3.0
+sqlparse==0.4.4
 ummalqura==2.0.1
